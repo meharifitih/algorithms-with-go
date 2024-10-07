@@ -219,3 +219,30 @@ Eg:
 1. Always return the lowest index possible for the first value.
 2. Always return the index of lowest value possible for the first return value.
 3. Always return the index of the two values who have a minimal difference. Eg prefer the values 2, 2 over 1, 3 over 0, 4 for the sum of 4.
+
+## 09 - Prime factorization (primes provided) [code]
+
+Source file: `factor.go`
+Function def: `Factor(primes []int, number int) []int`
+
+Factor takes in a list of primes and a number and factors that number with the provided primes.
+
+The returned numbers can be in any order; tests will sort them in increasing order to make checking easier.
+
+Bonus: Any remainder (aside from 1) that can't be factored will be treated as a prime in the results.
+
+Examples:
+
+```go
+Factor([]int{2,3,5,7}, 30) // []int{2,3,5}
+Factor([]int{2,3,5,7}, 28) // []int{2,2,7}
+Factor([]int{2,3,5,7}, 720) // []int{2,2,2,3,3,5}
+```
+
+Examples with remainders:
+
+```go
+Factor([2,5], 30) // []int{2,5,3}
+Factor([3,5], 720) // []int{3,3,5,16}
+Factor([], 4) // []int{4}
+```
