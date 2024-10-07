@@ -246,3 +246,39 @@ Factor([2,5], 30) // []int{2,5,3}
 Factor([3,5], 720) // []int{3,3,5,16}
 Factor([], 4) // []int{4}
 ```
+
+## 10 - Fibonacci sequence [code]
+
+Source file: `fibonacci.go`
+Function def: `Fibonacci(n int) int `
+
+Fibonacci returns the `n`th fibonacci number.
+
+The fibonacci series is:
+
+A Fibonacci number N is defined as:
+
+```
+Fibonacci(N) = Fibonacci(N-1) + Fibonacci(N-2)
+```
+
+Where the following base cases are used:
+
+```go
+Fibonacci(0) // 0
+Fibonacci(1) // 1
+```
+
+Examples:
+
+```go
+Fibonacci(0) // 0
+Fibonacci(1) // 1
+Fibonacci(2) // 1
+Fibonacci(3) // 2
+Fibonacci(4) // 3
+Fibonacci(5) // 5
+Fibonacci(6) // 8
+Fibonacci(7) // 13
+Fibonacci(14) // 377
+```
