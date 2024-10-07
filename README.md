@@ -282,3 +282,87 @@ Fibonacci(6) // 8
 Fibonacci(7) // 13
 Fibonacci(14) // 377
 ```
+
+## 11 - Greatest common divisor [code]
+
+Source file: `gcd.go`
+Function def: `GCD(a, b int) int`
+
+GCD stands for greatest common divisor
+
+Given two numbers, GCD calculates the largest number you could divide both numbers by without getting a remainder.
+
+Examples:
+
+```
+A = 10, B = 5, GCD = 5 (10%5 == 0, 5%5 == 0)
+A = 25, B = 5, GCD = 5
+A = 30, B = 15, GCD = 15
+A = 30, B = 9, GCD = 3
+A = 100, B = 9, GCD = 1
+```
+
+One way to solve this is to factor each number and then find the common factors from each:
+
+```
+A = 10, B = 5
+  10 = [2,5]
+  5 = [5]
+  GCD = [5] = 5
+
+A = 30, B = 15
+  30 = [2,3,5]
+  15 = [3,5]
+  GCD = [3,5] = 15
+
+A = 30, B = 9:
+  30 = [2,3,5]
+  9 = [3,3]
+  GCD = [3] = 3
+
+A = 100, B = 9:
+  100 = [2,2,5,5]
+  9 = [3,3]
+  GCD = [] = 1
+
+
+A = 100, B = 8:
+  100 = [2,2,5,5]
+  9 = [2,2,2]
+  GCD = [2,2] = 4
+```
+
+If you wanted, you could get a big list of primes and use our `Factor` function to solve this problem that way.
+
+Another way to solve GCD is using the Euclidean algorithm. We won't dive into the math of it, but what makes this algorithm really nice is both its simplicity and the fact that we don't actually need to factor numbers using primes.
+
+Here is how it works:
+
+Given two numbers, A and B:
+
+Step 1: If B == 0, return A
+Step 2: A becomes B, and B becomes the remainder of dividing A by B
+`a, b = b, a % b`
+Step 3: Go to step 1
+
+_Note: It doesn't matter if `A > B` or `A < B`._
+
+This is a really good algorithm to know because GCD is often used in algorithmic contests. For instance, GCD was used in a qualifier for the most recent (2019) Google Code Jam. It is also a relatively simple algorithm that we can look at and then try to translate into code while exploring both recursive and iterative solutions (which we will do in a later module on recursion).
+
+## 12 - stdin and stdout
+
+Many problem solve sites have you reading from `stdin` and `stdout` or files.
+
+`stdin` (standard input) is input that is provided by a user, often by typing from their keyboard, but this can also be piped in in most terminals.
+
+`stdout` (standard output) is where most programs will write output. In Go you write here by default if you do something like `fmt.Println("hi")`.
+
+Piping files to stdin and stdout is also pretty easy:
+
+```bash
+$ go run main.go < input.txt > output.txt
+```
+
+In this section we will cover how to more easily read from stdin without having to type every test case every single time, how to write to standard out and save the results in a file, and along the way we will also look at different ways to make it easier to read things like integers, floats, whole lines, single words, and more.
+
+This is all meant to just make it easier if you want to go practice on sites like Google Code Jam and others that tend to use stdin and stdout for input/output of a program. I highly recommend practicing with sites like this, so I highly recommend this section 😜
